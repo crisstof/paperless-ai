@@ -272,7 +272,8 @@ class OllamaService {
         // Generate custom fields template for the prompt
         const customFieldsTemplate = {};
 
-        customFieldsObj.custom_fields.forEach((field, index) => {
+        //customFieldsObj.custom_fields.forEach((field, index) => { //correction Fields vide
+		(customFieldsObj?.custom_fields || []).forEach((field, index) => {
             customFieldsTemplate[index] = {
                 field_name: field.value,
                 value: "Fill in the value based on your analysis"
@@ -405,7 +406,8 @@ class OllamaService {
         // Generate custom fields template for the prompt
         const customFieldsTemplate = {};
 
-        customFieldsObj.custom_fields.forEach((field, index) => {
+        //customFieldsObj.custom_fields.forEach((field, index) => { //correction bug
+		(this.customFields?.custom_fields || []).forEach((field, index) => {
             customFieldsTemplate[index] = {
                 field_name: field.value,
                 value: "Fill in the value based on your analysis"
